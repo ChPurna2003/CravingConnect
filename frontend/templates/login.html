@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="login-container">
+  <div class="login-card">
+    <h2>Select User</h2>
+
+    <form method="post" id="loginForm" class="login-form">
+
+      <label>Select User</label>
+      <select id="userSelect" name="username" onchange="autoFillPassword()">
+        <option value="nick">nick (Admin)</option>
+        <option value="captain_marvel">captain_marvel (Manager - India)</option>
+        <option value="captain_america">captain_america (Manager - America)</option>
+        <option value="thanos">thanos (Member - India)</option>
+        <option value="thor">thor (Member - India)</option>
+        <option value="travis">travis (Member - America)</option>
+      </select>
+
+      <label>Password</label>
+      <input type="password" id="passwordField" name="password" readonly>
+
+      <button class="btn btn-primary login-btn">Login</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  function autoFillPassword() {
+    // All your users have same password
+    document.getElementById("passwordField").value = "password";
+  }
+
+  // Auto-fill on first load
+  window.onload = autoFillPassword;
+</script>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CraveCoonect</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dark.css') }}">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <a href="/" class="logo">CraveConnect</a>
+  </div>
+
+  <nav class="nav-right">
+    <span id="userLabel" class="nav-user"></span>
+    <a href="/" class="nav-link">Home</a>
+    <a href="{{ url_for('logout') }}" class="nav-link">Logout</a>
+</nav>
+
+</header>
+
+<main class="container">
+  {% block content %}{% endblock %}
+</main>
+
+<script>
+  window.USER_ID = "{{ current_user.get_id() }}";
+  window.USER_ROLE = "{{ current_user.role }}";
+  window.USER_COUNTRY = "{{ current_user.country }}";
+  window.USER_NAME = "{{ current_user.username }}";
+
+</script>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>CraveConnect</h1>
+    <p class="tagline">Hunger Meets Heaven</p>
+  </div>
+</section>
+
+<div class="page-grid">
+
+  <!-- LEFT: RESTAURANTS -->
+  <div class="restaurant-list" id="restaurants">
+    Loading restaurants...
+  </div>
+
+  <!-- RIGHT: CART & CHECKOUT -->
+  <div class="sidebar">
+
+    <div class="panel">
+      <h3>Your Cart / Orders</h3>
+      <div id="myorders">Loading orders...</div>
+    </div>
+
+    <div class="panel">
+      <h3>Checkout</h3>
+      <button id="checkoutBtn" class="btn btn-primary" onclick="openCheckoutCart()">
+        Checkout Cart
+      </button>
+    </div>
+
+    <div class="panel" id="paymentPanel">
+      <h3>Payment Methods (Admin Only)</h3>
+      <button class="btn btn-ghost" onclick="showAddPaymentModal()">Add Method</button>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- PAYMENT MODAL -->
+<div id="payment-modal" class="modal hidden">
+  <div class="modal-card">
+    <h3>Select Payment Method</h3>
+    <select id="payment-selector"></select>
+    <button class="btn btn-primary" onclick="submitPayment()">Pay Now</button>
+    <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+  </div>
+</div>
+
+<!-- ADD PAYMENT METHOD MODAL -->
+<div id="add-payment-modal" class="modal hidden">
+  <div class="modal-card">
+    <h3>Add Payment Method</h3>
+
+    <label>Method Name</label>
+    <input id="pm-name">
+
+    <label>Last 4 Digits</label>
+    <input id="pm-last4">
+
+    <button class="btn btn-primary" onclick="savePaymentMethod()">Save</button>
+    <button class="btn btn-ghost" onclick="closeAddPaymentModal()">Cancel</button>
+  </div>
+</div>
+
+{% endblock %}
