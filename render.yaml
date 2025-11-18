@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: craving-connect
+    env: python
+    plan: free
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: gunicorn "backend.app:create_app()"
+    envVars:
+      - key: SECRET_KEY
+        value: "secret123"
