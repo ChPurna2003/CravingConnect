@@ -1,6 +1,7 @@
 # backend/app.py
 from flask import Flask, render_template, request, jsonify, redirect, url_for
 from backend.models import db, User, Restaurant, MenuItem, PaymentMethod, Order, OrderItem
+from backend.db_init import seed_data
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 import os
 
@@ -21,11 +22,10 @@ def create_app():
 
     db.init_app(app)
 
-    from backend.db_init import seed_data
 
     with app.app_context():
-    db.create_all()
-    seed_data()
+        db.create_all()
+        seed_data()
 
 
     # ----------------------------------------------------
