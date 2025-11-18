@@ -37,9 +37,10 @@ def seed_data():
 
     # ---- MENU ----
     items = [
-        MenuItem(restaurant_id=r1.id, name="Butter Chicken", price=17.00),
-        MenuItem(restaurant_id=r1.id, name="Naan", price=3.49),
-        MenuItem(restaurant_id=r2.id, name="Veg Biryani", price=8.99),
+        MenuItem(restaurant_id=r1.id, name="Butter Chicken", price=100.00),
+        MenuItem(restaurant_id=r1.id, name="Naan", price=15.00),
+        MenuItem(restaurant_id=r2.id, name="Veg Biryani", price=150.00),
+        MenuItem(restaurant_id=r2.id, name="Chicken Biryani", price=180.00),
         MenuItem(restaurant_id=r3.id, name="Burger", price=6.49),
         MenuItem(restaurant_id=r3.id, name="Fries", price=2.99),
         MenuItem(restaurant_id=r4.id, name="Pepperoni Pizza", price=9.49),
