@@ -3,6 +3,7 @@ services:
     name: craving-connect
     env: python
     plan: free
+    region: singapore
     buildCommand: pip install -r backend/requirements.txt
     startCommand: gunicorn "backend.app:create_app()"
     envVars:
