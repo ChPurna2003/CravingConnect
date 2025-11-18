@@ -1,4 +1,4 @@
-from models import db, User, Restaurant, MenuItem, PaymentMethod
+from backend.models import db, User, Restaurant, MenuItem, PaymentMethod
 from app import create_app
 import os
 
