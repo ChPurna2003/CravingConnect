@@ -55,7 +55,7 @@ async function refreshAll() {
 }
 
 /************************************************************
-  LOAD RESTAURANTS + MENUS
+  LOAD RESTAURANTS + MENUS  (WITH DIFFERENT IMAGES)
 ************************************************************/
 async function loadRestaurants() {
   const container = document.getElementById("restaurants");
@@ -69,18 +69,31 @@ async function loadRestaurants() {
 
     container.innerHTML = "";
 
-    restaurants.forEach(r => {
+    // 🔥 Hardcoded images for each restaurant
+    const images = [
+      "/static/img/rest1.jpg",
+      "/static/img/rest2.jpg",
+      "/static/img/rest3.jpg",
+      "/static/img/rest4.jpg",
+      "/static/img/rest5.jpg",
+      "/static/img/rest6.jpg"
+    ];
+
+    restaurants.forEach((r, index) => {
 
       // UI-level country restriction
       if (window.USER_ROLE !== "admin" && r.country !== window.USER_COUNTRY) {
-        return; // Hide restaurant
+        return;
       }
+
+      // Pick the image (loops if restaurants > images)
+      const imgSrc = images[index % images.length];
 
       const card = document.createElement("div");
       card.className = "restaurant-card";
 
       card.innerHTML = `
-        <img src="/static/img/food1.jpg" class="thumb">
+        <img src="${imgSrc}" class="thumb">
 
         <h3>${r.name}</h3>
         <div class="badge">${r.country}</div>
