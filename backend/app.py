@@ -1,6 +1,6 @@
 # backend/app.py
 from flask import Flask, render_template, request, jsonify, redirect, url_for
-from models import db, User, Restaurant, MenuItem, PaymentMethod, Order, OrderItem
+from backend.models import db, User, Restaurant, MenuItem, PaymentMethod, Order, OrderItem
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 import os
 
